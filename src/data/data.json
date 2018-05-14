@@ -1,0 +1,18 @@
+{
+    "about": [
+        {
+            "title": "I'm Laci Davis, an illustrator and designer living in Texas.  I mostly work in digital but also have experience with sketching, painting, graphite, charcoal, ink, markers, and watercolors."
+        }
+    ],
+    "howTo": [
+        {
+            "title": "Prepare a coffee"
+        },
+        {
+            "title": "Run: `npm i` to install the dependencies"
+        },
+        {
+            "title": "Start coding!"
+        }
+    ]
+}
