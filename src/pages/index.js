@@ -2,13 +2,12 @@
 
 import React from 'react';
 import About from '../components/About/About';
-// import HowTo from '../components/how-to';
+import Gallery from '../components/Gallery/Gallery';
 
 const IndexPage = props => (
   <main>
-    <About data={props.data.allDataJson.edges[0].node.about} />
-    {/* <Features data={props.data.allDataJson.edges[0].node.features} />
-    <HowTo data={props.data.allDataJson.edges[0].node.howTo} /> */}
+    <About blurb={props.data.aboutBlurb.about[0].title} />
+    <Gallery images={props.data.images} />
   </main>
 );
 
@@ -16,12 +15,15 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allDataJson {
-      edges {
-        node {
-          about {
-            title
-          }
+    aboutBlurb: dataJson {
+      about {
+        title
+      }
+    }
+    images: file(relativePath: { eq: "/img/*" }) {
+      childImageSharp {
+        sizes {
+          ...GatsbyImageSharpSizes
         }
       }
     }

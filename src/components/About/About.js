@@ -6,7 +6,7 @@ const About = props => (
   <section className="about">
     <div className="container">
       <div className="row">
-        <h3 className="col-6 about-heading">{props.data[0].title}</h3>
+        <h3 className="col-6 about-heading">{props.blurb}</h3>
       </div>
     </div>
   </section>

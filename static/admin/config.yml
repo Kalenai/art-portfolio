@@ -1,0 +1,19 @@
+backend:
+  name: test-repo
+  # name: github
+  # repo: kalenai/art-portfolio
+
+media_folder: static/images
+
+collections:
+  - name: portfolio
+    label: Portfolio
+    folder: portfolio
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
+    fields:
+      - { name: image, label: Image, widget: image }
+      - { name: title, label: Title }
+      - { name: category, label: Category, widget: select, options: ["Traditional", "Illustration", "Vector"] }
+      - { name: body, label: Body, widget: markdown, required: false }
+
