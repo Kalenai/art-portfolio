@@ -4,16 +4,16 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators;
-  console.log(node.internal.type);
+  // console.log(node.internal.type);
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: `portfolio` });
-    console.log(slug);
+    // console.log(slug);
     createNodeField({
       node,
       name: `slug`,
       value: slug,
     });
-    console.log(node);
+    // console.log(node);
   }
 };
 

@@ -43,9 +43,22 @@ module.exports = {
         path: `${__dirname}/static/images/`,
       },
     },
-    `gatsby-transformer-remark`,
+    // `gatsby-transformer-remark`,
     `gatsby-transformer-json`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+            },
+          },
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-netlify-cms`,
   ],

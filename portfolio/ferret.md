@@ -1,5 +1,5 @@
 ---
-image: /static/images/ferret.png
+image: ../static/images/ferret.png
 title: Ferret
 category: "Vector"
 ---

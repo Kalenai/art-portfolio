@@ -1,22 +1,33 @@
 import React from 'react';
-import Img from 'gatsby-image';
+import './_image-detail.scss';
 
-export default ({ data }) => {
-  const listing = data.markdownRemark;
+export default (props) => {
+  const { frontmatter, html } = props.data.markdownRemark;
+  const { src, srcSet, sizes } = frontmatter.image.childImageSharp.sizes;
+
   return (
     <div>
-      <img src={listing.frontmatter.image} />
-      <h3>{listing.frontmatter.title}</h3>
+      <img src={src} srcSet={srcSet} sizes={sizes} alt="" />
+      {frontmatter.title ? <h3>{frontmatter.title}</h3> : null}
+      {html ? <div dangerouslySetInnerHTML={{ __html: html }} /> : null}
     </div>
-)};
+  );
+};
 
 export const query = graphql`
   query ImageDetailQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
-        image
+        image {
+          childImageSharp {
+            sizes {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
         title
       }
+      html
     }
   }
 `;
