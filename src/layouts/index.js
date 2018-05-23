@@ -1,3 +1,5 @@
+/* global graphql */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
@@ -6,14 +8,14 @@ import Footer from '../components/Footer/Footer';
 
 import '../../sass/style.scss';
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ data, children }) => (
   <div>
     <Helmet
       title="Laci Davis"
     />
-    <Header />
+    <Header social={data.social} />
     {children()}
-    <Footer />
+    <Footer social={data.social} />
   </div>
 );
 
@@ -22,3 +24,18 @@ TemplateWrapper.propTypes = {
 };
 
 export default TemplateWrapper;
+
+export const query = graphql`
+  query IndexLayoutQuery {
+    social: site {
+      siteMetadata {
+        social {
+          instagram
+          twitter
+          tumblr
+          behance
+        }
+      }
+    }
+  }
+`;

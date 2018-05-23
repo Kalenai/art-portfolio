@@ -5,6 +5,12 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
   siteMetadata: {
     title: `Art Portfolio`,
+    social: {
+      instagram: "kitselle_art",
+      twitter: "Kitselle",
+      tumblr: "kitselle",
+      behance: "",
+    },
   },
   plugins: [
     `gatsby-plugin-react-next`,

@@ -1,3 +1,5 @@
+/* global graphql */
+
 import React from 'react';
 import './_image-detail.scss';
 

@@ -1,12 +1,19 @@
 import React from 'react';
-import Img from 'gatsby-image';
+import Link from 'gatsby-link';
+import './_gallery.scss';
 
 const Gallery = props => (
   <div>
-    {/* <Img sizes={props.images.sizes} /> */}
-    {/* {props.images.map(image => (
-      <Img sizes={image} />
-    ))} */}
+    {props.images.map(({ node }) => {
+      const { src, srcSet, sizes } = node.frontmatter.image.childImageSharp.sizes;
+      const title = node.frontmatter.title;
+      const slug = node.fields.slug;
+      return (
+        <Link to={slug} key={slug}>
+          <img src={src} srcSet={srcSet} sizes={sizes} alt={title} />
+        </Link>
+      );
+    })}
   </div>
 );
 

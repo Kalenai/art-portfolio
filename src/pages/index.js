@@ -7,7 +7,7 @@ import Gallery from '../components/Gallery/Gallery';
 const IndexPage = props => (
   <main>
     <About blurb={props.data.aboutBlurb.about[0].title} />
-    <Gallery images={props.data.images} />
+    <Gallery images={props.data.images.edges} />
   </main>
 );
 
@@ -20,29 +20,24 @@ export const pageQuery = graphql`
         title
       }
     }
-    images: file(relativePath: { eq: "/img/*" }) {
-      childImageSharp {
-        sizes {
-          ...GatsbyImageSharpSizes
+    images: allMarkdownRemark {
+      edges {
+        node {
+          frontmatter {
+            image {
+              childImageSharp {
+                sizes {
+                  ...GatsbyImageSharpSizes
+                }
+              }
+            }
+            title
+          }
+          fields {
+            slug
+          }
         }
       }
     }
   }
 `;
-
-// export const pageQuery = graphql`
-//   query IndexQuery {
-//     allDataJson {
-//       edges {
-//         node {
-//           features {
-//             title
-//           }
-//           howTo {
-//             title
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
