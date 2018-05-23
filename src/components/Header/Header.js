@@ -1,8 +1,9 @@
 import React from 'react';
+import Link from 'gatsby-link';
 
 import './_header.scss';
 
-const Header = () => (
+const Header = props => (
   <header className="header">
     <div className="container">
       <div className="row">
@@ -22,7 +23,7 @@ const Header = () => (
               </a>
             </li>
             <li className="header-nav-item">
-              <a className="header-nav-link" href="#work">
+              <a className="header-nav-link" href={props.resume.publicURL}>
                 Resume
               </a>
             </li>

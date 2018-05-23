@@ -89,7 +89,9 @@ $RECYCLE.BIN/
 .com.apple.timemachine.donotpresent
 
 # Elastic Beanstalk Files
-
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Project
+LaciDavis_Resume.pdf

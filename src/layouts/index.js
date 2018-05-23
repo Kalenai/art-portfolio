@@ -13,7 +13,7 @@ const TemplateWrapper = ({ data, children }) => (
     <Helmet
       title="Laci Davis"
     />
-    <Header social={data.social} />
+    <Header social={data.social} resume={data.resume} />
     {children()}
     <Footer social={data.social} />
   </div>
@@ -36,6 +36,9 @@ export const query = graphql`
           behance
         }
       }
+    }
+    resume: file(name: { regex: "/Resume/"}) {
+      publicURL
     }
   }
 `;

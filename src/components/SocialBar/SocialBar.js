@@ -4,12 +4,13 @@ import InstagramIcon from '../icon/instagram.icon';
 import TwitterIcon from '../icon/twitter.icon';
 import TumblrIcon from '../icon/tumblr.icon';
 import BehanceIcon from '../icon/behance.icon';
+import './_socialbar.scss';
 
 const SocialBar = (props) => {
   const { instagram, twitter, tumblr, behance } = props.social.siteMetadata.social;
 
   return (
-    <div>
+    <div className="social-bar">
       {instagram ?
         <a
           href={`https://www.instagram.com/${instagram}/`}
