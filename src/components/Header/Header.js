@@ -1,37 +1,58 @@
-import React from 'react';
-import Link from 'gatsby-link';
-
+import React, { Component } from 'react';
+import SocialBar from '../SocialBar/SocialBar';
 import './_header.scss';
 
-const Header = props => (
-  <header className="header">
-    <div className="container">
-      <div className="row">
-        <div className="col-sm">
-          <h3 className="header-logo">Laci Davis</h3>
-        </div>
-        <nav className="col-sm">
-          <ul className="header-nav-list">
-            <li className="header-nav-item">
-              <a className="header-nav-link" href="#work">
-                My Work
+class Header extends Component {
+  state = {
+    showMenu: false
+  };
+
+  toggleMenu = () => {
+    this.setState({ showMenu: !this.state.showMenu });
+  };
+
+  render() {
+    const activeMenu = this.state.showMenu ? 'is-active' : '';
+
+    return (
+      <header className="header">
+        <nav className="navbar is-primary" aria-label="main navigation">
+          <div className="navbar-brand">
+            <a href="" className="navbar-item">
+              Laci Davis
+            </a>
+            <a
+              role="button"
+              className={`navbar-burger ${activeMenu}`}
+              aria-label="menu"
+              aria-expanded="false"
+              onClick={this.toggleMenu}
+            >
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+            </a>
+          </div>
+          <div className={`navbar-menu ${activeMenu}`}>
+            <div className="navbar-start">
+              <a href="#work" className="navbar-item">
+                Work
               </a>
-            </li>
-            <li className="header-nav-item">
-              <a className="header-nav-link" href="#contact">
+              <a href="#contact" className="navbar-item">
                 Contact
               </a>
-            </li>
-            <li className="header-nav-item">
-              <a className="header-nav-link" href={props.resume.publicURL}>
+              <a href={this.props.resume.publicURL} className="navbar-item">
                 Resume
               </a>
-            </li>
-          </ul>
+            </div>
+            <div className="navbar-end">
+              <SocialBar social={this.props.social} />
+            </div>
+          </div>
         </nav>
-      </div>
-    </div>
-  </header>
-);
+      </header>
+    );
+  }
+}
 
 export default Header;

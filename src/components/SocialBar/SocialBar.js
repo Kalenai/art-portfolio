@@ -10,9 +10,10 @@ const SocialBar = (props) => {
   const { instagram, twitter, tumblr, behance } = props.social.siteMetadata.social;
 
   return (
-    <div className="social-bar">
+    <React.Fragment>
       {instagram ?
         <a
+          className="social-link navbar-item"
           href={`https://www.instagram.com/${instagram}/`}
           target="_blank"
           rel="noopener noreferrer"
@@ -21,6 +22,7 @@ const SocialBar = (props) => {
         </a> : null}
       {twitter ?
         <a
+          className="social-link navbar-item"
           href={`https://twitter.com/${twitter}`}
           target="_blank"
           rel="noopener noreferrer"
@@ -29,6 +31,7 @@ const SocialBar = (props) => {
         </a> : null}
       {tumblr ?
         <a
+          className="social-link navbar-item"
           href={`https://${tumblr}.tumblr.com/`}
           target="_blank"
           rel="noopener noreferrer"
@@ -37,13 +40,14 @@ const SocialBar = (props) => {
         </a> : null}
       {behance ?
         <a
+          className="social-link navbar-item"
           href={`https://www.behance.net/${behance}`}
           target="_blank"
           rel="noopener noreferrer"
         >
           <Icon icon={BehanceIcon} width={24} height={24} fill={'#fff'} />
         </a> : null}
-    </div>
+    </React.Fragment>
   );
 };
 

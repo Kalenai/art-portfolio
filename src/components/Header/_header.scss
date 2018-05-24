@@ -1,24 +1,24 @@
-@import '../../../sass/style';
+// @import '../../../sass/style';
 
-.header {
-  margin: 1.5rem 0;
+// .header {
+//   margin: 1.5rem 0;
 
-  .header-logo {
-    text-align: center;
+//   .header-logo {
+//     text-align: center;
 
-    @include media-breakpoint-up(md) {
-      text-align: left;
-    }
-  }
+//     // @include media-breakpoint-up(md) {
+//     //   text-align: left;
+//     // }
+//   }
 
-  .header-nav-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-  }
-}
+//   .header-nav-list {
+//     margin: 0;
+//     padding: 0;
+//     list-style: none;
+//     display: flex;
+//     justify-content: space-between;
+//   }
+// }
 
 // .header {
 //     width: 100%;
